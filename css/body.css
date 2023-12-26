@@ -4,15 +4,16 @@ html {
 
 
 *, ::before, ::after {
-    box-sizing: inherit;
+    
 }
 
 
-.body {
+ .body{
 
-    background-color: rgba(199, 190, 190, 0.563);
-    display: flex;
-   
-    flex-direction: column;
+
+
+margin:100px;
+margin-top: 20px;
+margin-bottom: 20px;
 
 }
