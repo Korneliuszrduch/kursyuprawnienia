@@ -1,19 +1,21 @@
-html {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-
-*, ::before, ::after {
-    
+.body {
+    font-family: Arial, sans-serif;
+    margin: 70px;
+    padding: 0;
+    max-width: 1300px;
 }
 
+@media (max-width: 500px) {
 
- .body{
+    .body {
 
 
 
-margin:100px;
-margin-top: 20px;
-margin-bottom: 20px;
-
-}
+        margin: 0px;
+    }}

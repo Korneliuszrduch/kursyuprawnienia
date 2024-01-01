@@ -1,123 +1,29 @@
-{
+// ... (wcześniejszy kod) ...
 
-    const tasks = [
-        {
-            content: "nagrac lekcję",
-            done: false,
-
-        },
-
-        {
-            content: "zjeść pierogi",
-            done: true,
-
-        },
-
-    ];
-
-
-
-
-    const render = () => {
-
-        let htmlString = "";
-
-        for (const task of tasks) {
-
-            htmlString += `
-         
-            <button class="list__button js-done">${task.done ? "✓" : ""} </button>
-            <p class="paragraf"> ${task.content}</p>
-            <button class="list__button list__button--remove js-remove">🗑</button>
-        `;
-
-        }
-        document.querySelector(".js-list").innerHTML = htmlString;
-
-        const removeButtons = document.querySelectorAll(".js-remove");
-
-        removeButtons.forEach((removeButton, index) => {
-
-            removeButton.addEventListener("click", () => {
-
-                removeTask(index);
-            });
-
-        });
-
-        const toogleButtons = document.querySelectorAll(".js-done");
-        toogleButtons.forEach((toogleButton, index) => {
-
-            toogleButton.addEventListener("click", () => {
-
-                toogleTaskDone(index);
-            });
-        });
-
-
-
-    };
-
-
-    const toogleTaskDone = (taskIndex) => {
-        tasks[taskIndex].done = !tasks[taskIndex].done;
-        render();
+// Funkcja pokazująca popup
+function showPopup() {
     
-    };
+    var popup = document.querySelector(".popup");
+    var overlay = document.querySelector("overlay");
 
+    // Pobierz rozmiary okna przeglądarki
+    var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-const onFormSubmit = (event) => {
-    event.preventDefault();
-    const newTaskContent = document.querySelector(".js-newTask").value.trim();
+    // Ustaw rozmiary popupa na rozmiary okna
+    popup.style.width = windowWidth + 'px';
+    popup.style.height = windowHeight + 'px';
 
-    if (newTaskContent === "") {
-        return;
-    }
-
-    addNewTask(newTaskContent);
-
-};
-
-const addNewTask = (newTaskContent) => {
-
-    tasks.push({ content: newTaskContent, });
-
-    render();
-};
-
-const removeTask = (index) => {
-    tasks.splice(index, 1);
-    render();
-};
-
-
-
-
-const init = () => {
-    render();
-    const form = document.querySelector(".js-form");
-    form.addEventListener("submit", onFormSubmit);
-
-
-};
-
-
-
-init();
-
-const addTask = () => {
-
-
-
-
-};
-
-
-
-
-
-
-
-
-
+    popup.style.display = "block";
+    overlay.style.display = "block";
 }
+
+// Funkcja zamykająca popup
+function closePopup() {
+    var popup = document.querySelector(".popup");
+    var overlay = document.querySelector("overlay");
+    popup.style.display = "none";
+    overlay.style.display = "none";
+}
+
+// ... (wcześniejszy kod) ...
