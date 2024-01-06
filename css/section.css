@@ -1,4 +1,6 @@
-.section {}
+.section {
+    display: grid;
+}
 
 .section--top {
 
@@ -45,6 +47,8 @@
     padding: 10px;
 }
 
-.section__paragraf {
-    font-size: 18px;
+
+.section--dateTraining{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
